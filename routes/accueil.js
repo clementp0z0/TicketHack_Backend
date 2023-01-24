@@ -36,4 +36,5 @@ router.get('/search/:departure/:arrival/:date', (req, res) => {
   })
 
 
+
 module.exports = router;
