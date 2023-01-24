@@ -31,5 +31,9 @@ router.get('/search/:departure/:arrival/:date', (req, res) => {
       .catch(err => res.status(400).json({ result: false, error: err }));
   });
 
+  router.post('/', (req, res) => {
+    
+  })
+
 
 module.exports = router;
