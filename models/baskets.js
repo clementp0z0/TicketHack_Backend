@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const basketSchema = new mongoose.Schema({
   trip: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Trip'
+    ref: 'trips'
   }
 });
 
