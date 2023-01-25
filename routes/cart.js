@@ -3,7 +3,8 @@ var router = express.Router();
 const Trip = require('../models/trips');
 
 router.get('/basket', function(req, res) {
-    Bascket.find().then(data => {
+    Bascket.find().populate('trips')
+    .then(data => {
         res.json({ basket: data})
     })
 });
