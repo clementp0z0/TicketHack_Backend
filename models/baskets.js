@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
-const basketSchema = new mongoose.Schema({
+const basketSchema = mongoose.Schema({
   trip: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'trips'
   }
 });
 
-const Basket = mongoose.model('Basket', basketSchema);
+const Basket = mongoose.model('baskets', basketSchema);
 
 module.exports = Basket;
