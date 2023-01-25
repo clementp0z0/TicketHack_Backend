@@ -32,24 +32,23 @@ router.get('/search/:departure/:arrival/:date', (req, res) => {
       .catch(err => res.status(400).json({ result: false, error: err }));
   });
 
-  router.post('/', (req, res) => {
-    router.post('/basket', (req, res) => {
-      Trip.findById(req.body.tripId, (trip) => {
-        if (!trip) return res.send({ message: 'Trip not found' });
+router.post('/basket', (req, res) => {
+    Trip.findById(req.body.tripId, (trip) => {
+      if (!trip) return res.send({ message: 'Trip not found' });
     
         const basket = new Basket({
           trip: trip._id,
         });
     
-        basket.save(() => {
-          Basket.findById(basket._id).populate('trip')
-          .then(data => {
-            console.log(data);
-          })
-        });
+      basket.save(() => {
+        Basket.findById(basket._id).populate('trip')
+        .then(data => {
+          console.log(data);
+        })
       });
     });
-  })
+});
+
 
 
 module.exports = router;
